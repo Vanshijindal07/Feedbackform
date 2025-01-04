@@ -1,0 +1,46 @@
+ //script.js
+
+
+let selectedRating = 0;
+function createRatingButtons() {
+  const ratingOptions = document.getElementById('rating-options');
+  for (let i = 1; i <= 10; i++) {
+    const button = document.createElement('button');
+    button.textContent = i;
+    button.addEventListener('click', () => selectRating(i));
+    ratingOptions.appendChild(button);
+  }
+}
+
+
+function selectRating(rating) {
+  selectedRating = rating;
+  const buttons = document.querySelectorAll('#rating-options button');
+  buttons.forEach((button, index) => {
+    button.classList.toggle('selected', index + 1 === rating);
+  });
+}
+
+
+document.getElementById('submit-btn').addEventListener('click', () => {
+  const feedbackText = document.getElementById('feedback-text').value.trim();
+
+  if (selectedRating === 0 || feedbackText === '') {
+    alert('Please select a rating and write a review.');
+    return;
+  }
+
+  alert(`Thank you for your feedback!\n\nRating: ${selectedRating}\nReview: ${feedbackText}`);
+
+ 
+  document.getElementById('feedback-text').value = '';
+  selectedRating = 0;
+  document.querySelectorAll('#rating-options button').forEach((btn) => btn.classList.remove('selected'));
+});
+
+
+function init() {
+  createRatingButtons();
+}
+
+init();
