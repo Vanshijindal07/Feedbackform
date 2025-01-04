@@ -1,0 +1,24 @@
+//index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h2>How would you rate your service with us?</h2>
+      <div id="rating-options">
+        <!-- Rating buttons will be dynamically created here -->
+      </div>
+      <input type="text" id="feedback-text" placeholder="Write a review" />
+      <button id="submit-btn">Send</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
